@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Heart Disease Dashboard</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+
+body{
+background:#f5f7fa;
+}
+
+/* HEADER */
+
+.header{
+background:#1f2d3d;
+color:white;
+padding:18px;
+text-align:center;
+font-size:24px;
+font-weight:700;
+letter-spacing:0.5px;
+box-shadow:0 3px 10px rgba(0,0,0,0.15);
+}
+
+/* DASHBOARD */
+
+.card{
+box-shadow:0 4px 12px rgba(0,0,0,0.1);
+border:none;
+border-radius:12px;
+}
+
+.dashboard-title{
+text-align:center;
+margin-bottom:30px;
+font-weight:700;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<div class="header">
+Heart Disease Lifestyle & Health Risk Analysis
+</div>
+
+<div class="container-fluid p-4">
+
+<div class="row g-4">
+
+<div class="col-md-6">
+<div class="card p-3">
+<h5>General Health Impact</h5>
+<canvas id="healthChart"></canvas>
+</div>
+</div>
+
+<div class="col-md-6">
+<div class="card p-3">
+<h5>Smoking Impact</h5>
+<canvas id="smokingChart"></canvas>
+</div>
+</div>
+
+<div class="col-md-6">
+<div class="card p-3">
+<h5>Physical Activity Analysis</h5>
+<canvas id="activityChart"></canvas>
+</div>
+</div>
+
+<div class="col-md-6">
+<div class="card p-3">
+<h5>Diabetes Impact</h5>
+<canvas id="diabetesChart"></canvas>
+</div>
+</div>
+
+<div class="col-12">
+<div class="card p-3">
+<h5>Sleep vs BMI</h5>
+<canvas id="bmiChart"></canvas>
+</div>
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+new Chart(document.getElementById("healthChart"),{
+type:"bar",
+data:{
+labels:["Poor","Fair","Good","Very Good","Excellent"],
+datasets:[
+{
+label:"Heart Disease",
+data:[120,320,450,200,50],
+backgroundColor:"#4e79a7"
+},
+{
+label:"No Disease",
+data:[160,240,280,160,60],
+backgroundColor:"#f28e2b"
+}
+]
+}
+})
+
+new Chart(document.getElementById("smokingChart"),{
+type:"bar",
+data:{
+labels:["No Smoking","Former Smoker","Current Smoker"],
+datasets:[
+{
+label:"Heart Disease",
+data:[1200,300,400],
+backgroundColor:"#4e79a7"
+},
+{
+label:"No Disease",
+data:[300,400,800],
+backgroundColor:"#f28e2b"
+}
+]
+}
+})
+
+new Chart(document.getElementById("activityChart"),{
+type:"bar",
+data:{
+labels:["No Physical Activity","Regular Activity"],
+datasets:[
+{
+label:"Heart Disease",
+data:[1000,350],
+backgroundColor:"#4e79a7"
+},
+{
+label:"No Disease",
+data:[600,800],
+backgroundColor:"#f28e2b"
+}
+]
+}
+})
+
+new Chart(document.getElementById("diabetesChart"),{
+type:"bar",
+data:{
+labels:["No Diabetes","Pre-Diabetes","Diabetes"],
+datasets:[
+{
+label:"Heart Disease",
+data:[900,350,120],
+backgroundColor:"#4e79a7"
+},
+{
+label:"No Disease",
+data:[400,120,50],
+backgroundColor:"#f28e2b"
+}
+]
+}
+})
+
+new Chart(document.getElementById("bmiChart"),{
+type:"scatter",
+data:{
+datasets:[
+{
+label:"Heart Disease",
+data:[
+{x:24,y:6},
+{x:26,y:7},
+{x:28,y:6},
+{x:30,y:5},
+{x:32,y:4}
+],
+backgroundColor:"#4e79a7"
+},
+{
+label:"No Disease",
+data:[
+{x:22,y:7},
+{x:24,y:8},
+{x:25,y:7},
+{x:27,y:6}
+],
+backgroundColor:"#f28e2b"
+}
+]
+},
+options:{
+scales:{
+x:{title:{display:true,text:"BMI"}},
+y:{title:{display:true,text:"Sleep Hours"}}
+}
+}
+})
+
+</script>
+
+</body>
+</html>
